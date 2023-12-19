@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping ("/calculator")
+@RequestMapping("/calculator")
 public class CalculatorController {
     private final CalculatorService calculatorService;
 
@@ -20,27 +20,42 @@ public class CalculatorController {
     }
 
     @GetMapping(path = "/plus")
-    public String plus(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
-        return num1 + " + " + num2 + " = " + calculatorService.plus(num1, num2);
+    public String plus(@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2) {
+        if (num1 == null || num2 == null) {
+            return "Ошибка! Не заданы один или оба значения!";
+        } else {
+            return num1 + " + " + num2 + " = " + calculatorService.plus(num1, num2);
+        }
     }
 
+
     @GetMapping(path = "/minus")
-    public String minus(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
-        return num1 + " - " + num2 + " = " + calculatorService.minus(num1, num2);
+    public String minus(@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2) {
+        if (num1 == null || num2 == null) {
+            return "Ошибка! Не заданы один или оба значения!";
+        } else {
+            return num1 + " - " + num2 + " = " + calculatorService.minus(num1, num2);
+        }
     }
 
     @GetMapping(path = "/multiply")
-    public String multiply(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
-        return num1 + " * " + num2 + " = " + calculatorService.multiply(num1, num2);
+    public String multiply(@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2) {
+        if (num1 == null || num2 == null) {
+            return "Ошибка! Не заданы один или оба значения!";
+        } else {
+            return num1 + " * " + num2 + " = " + calculatorService.multiply(num1, num2);
+        }
     }
 
 
     @GetMapping(path = "/divide")
-    public String divide(@RequestParam("num1") int num1, @RequestParam("num2") int num2) {
-        if (num2 == 0) {
-            return "Ошибка! Делить на ноль нельзя!";
-        } else {
+    public String divide(@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2) {
+        if (num1 == null || num2 == null) {
+            return "Ошибка! Не заданы один или оба значения!";
+        } else if (num2 == 0) {
+            return "Ошибка! На ноль делить нельзя!";
+        } else
             return num1 + " / " + num2 + " = " + calculatorService.divide(num1, num2);
-        }
     }
 }
+
