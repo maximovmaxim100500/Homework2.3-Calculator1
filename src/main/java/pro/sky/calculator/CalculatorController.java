@@ -21,7 +21,7 @@ public class CalculatorController {
 
     @GetMapping(path = "/plus")
     public String plus(@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2) {
-        if (num1 == null || num2 == null) {
+        if (calculatorService.checkingValues(num1, num2)) {
             return "Ошибка! Не заданы один или оба значения!";
         } else {
             return num1 + " + " + num2 + " = " + calculatorService.plus(num1, num2);
@@ -31,7 +31,7 @@ public class CalculatorController {
 
     @GetMapping(path = "/minus")
     public String minus(@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2) {
-        if (num1 == null || num2 == null) {
+        if (calculatorService.checkingValues(num1, num2)) {
             return "Ошибка! Не заданы один или оба значения!";
         } else {
             return num1 + " - " + num2 + " = " + calculatorService.minus(num1, num2);
@@ -40,7 +40,7 @@ public class CalculatorController {
 
     @GetMapping(path = "/multiply")
     public String multiply(@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2) {
-        if (num1 == null || num2 == null) {
+        if (calculatorService.checkingValues(num1, num2)) {
             return "Ошибка! Не заданы один или оба значения!";
         } else {
             return num1 + " * " + num2 + " = " + calculatorService.multiply(num1, num2);
@@ -50,7 +50,7 @@ public class CalculatorController {
 
     @GetMapping(path = "/divide")
     public String divide(@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2) {
-        if (num1 == null || num2 == null) {
+        if (calculatorService.checkingValues(num1, num2)) {
             return "Ошибка! Не заданы один или оба значения!";
         } else if (num2 == 0) {
             return "Ошибка! На ноль делить нельзя!";

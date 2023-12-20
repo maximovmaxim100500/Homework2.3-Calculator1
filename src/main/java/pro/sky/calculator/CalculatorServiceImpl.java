@@ -29,5 +29,13 @@ public class CalculatorServiceImpl implements CalculatorService {
         return num1 / num2;
     }
 
+    @Override
+    public boolean checkingValues(Double num1, Double num2) {
+        if (num1 == null || num2 == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
