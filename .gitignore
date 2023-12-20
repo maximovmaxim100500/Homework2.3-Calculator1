@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/resources/application.properties
+/src/test/java/pro/sky/calculator/CalculatorApplicationTests.java
+/mvnw.cmd
+/mvnw
+/.mvn/wrapper/maven-wrapper.jar
+/.mvn/wrapper/maven-wrapper.properties
