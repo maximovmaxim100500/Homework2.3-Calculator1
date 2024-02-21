@@ -11,6 +11,6 @@ public interface CalculatorService {
 
     Double divide(Double num1, Double num2);
 
-    boolean checkingValues(Double num1, Double num2);
+    void checkingValues(Double num1, Double num2);
 
 }
