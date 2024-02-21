@@ -25,7 +25,6 @@ public class CalculatorController {
         return num1 + " + " + num2 + " = " + calculatorService.plus(num1, num2);
     }
 
-
     @GetMapping(path = "/minus")
     public String minus(@RequestParam(required = false) Double num1, @RequestParam(required = false) Double num2) {
         calculatorService.checkingValues(num1, num2);
