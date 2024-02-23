@@ -21,38 +21,46 @@ class CalculatorServiceImplTest {
 
     @Test
     void plus() {
-        Double num1 = 5d;
-        Double num2 = 6d;
-        Double expected = 11d;
-        Double actual = out.plus(num1, num2);
-        assertEquals(expected, actual);
+        Double[] num1 = {5d, 0d, -10d, 50d};
+        Double[] num2 = {6d, 47d, -20d, -57d};
+        Double[] expected = {11d, 47d, -30d, -7d};
+        for (int i = 0; i < num1.length; i++) {
+            Double actual = out.plus(num1[i], num2[i]);
+            assertEquals(expected[i], actual);
+        }
     }
 
     @Test
     void minus() {
-        Double num1 = 5d;
-        Double num2 = 6d;
-        Double expected = -1d;
-        Double actual = out.minus(num1, num2);
-        assertEquals(expected, actual);
+        Double[] num1 = {5d, 0d, -10d, 50d};
+        Double[] num2 = {6d, 47d, -20d, -57d};
+        Double[] expected = {-1d, -47d, 10d, 107d};
+        for (int i = 0; i < num1.length; i++) {
+            Double actual = out.minus(num1[i], num2[i]);
+            assertEquals(expected[i], actual);
+        }
     }
 
     @Test
     void multiply() {
-        Double num1 = 5d;
-        Double num2 = 6d;
-        Double expected = 30d;
-        Double actual = out.multiply(num1, num2);
-        assertEquals(expected, actual);
+        Double[] num1 = {5d, 0d, -10d, 50d};
+        Double[] num2 = {6d, 47d, -20d, -57d};
+        Double[] expected = {30d, 0d, 200d, -2850d};
+        for (int i = 0; i < num1.length; i++) {
+            Double actual = out.multiply(num1[i], num2[i]);
+            assertEquals(expected[i], actual);
+        }
     }
 
     @Test
     void divide() {
-        Double num1 = 18d;
-        Double num2 = 6d;
-        Double expected = 3d;
-        Double actual = out.divide(num1, num2);
-        assertEquals(expected, actual);
+        Double[] num1 = {30d, 0d, -10d, 50d};
+        Double[] num2 = {6d, 47d, -20d, -25d};
+        Double[] expected = {5d, 0d, 0.5d, -2d};
+        for (int i = 0; i < num1.length; i++) {
+            Double actual = out.divide(num1[i], num2[i]);
+            assertEquals(expected[i], actual);
+        }
     }
 
     @Test
