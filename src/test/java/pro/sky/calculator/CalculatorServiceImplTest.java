@@ -67,30 +67,33 @@ class CalculatorServiceImplTest {
 
     public static Stream<Arguments> provideParamsForTests() {
         return Stream.of(
-                Arguments.of(18d, 6d, 24d, 12d, 108d, 3d)
+                Arguments.of(18d, 6d),
+                Arguments.of(-5d, -10d),
+                Arguments.of(0d, -10d),
+                Arguments.of(-500d, 10d)    //Проверку деления на ноль в задании сказано не проверять
         );
     }
 
     @ParameterizedTest
     @MethodSource("provideParamsForTests")
-    public void plus(Double num1, Double num2, Double expectedPlus, Double expectedMinus,
-                     Double expectedMultiply, Double expectedDivide) {
+    public void plus(Double num1, Double num2) {
+        Double expectedPlus = num1 + num2;
         Double actual = out.plus(num1, num2);
         assertEquals(expectedPlus, actual);
     }
 
     @ParameterizedTest
     @MethodSource("provideParamsForTests")
-    public void minus(Double num1, Double num2, Double expectedPlus, Double expectedMinus,
-                      Double expectedMultiply, Double expectedDivide) {
+    public void minus(Double num1, Double num2) {
+        Double expectedMinus = num1 - num2;
         Double actual = out.minus(num1, num2);
         assertEquals(expectedMinus, actual);
     }
 
     @ParameterizedTest
     @MethodSource("provideParamsForTests")
-    public void multiply(Double num1, Double num2, Double expectedPlus, Double expectedMinus,
-                         Double expectedMultiply, Double expectedDivide) {
+    public void multiply(Double num1, Double num2) {
+        Double expectedMultiply = num1 * num2;
         Double actual = out.multiply(num1, num2);
         assertEquals(expectedMultiply, actual);
     }
@@ -98,8 +101,8 @@ class CalculatorServiceImplTest {
 
     @ParameterizedTest
     @MethodSource("provideParamsForTests")
-    public void divide(Double num1, Double num2, Double expectedPlus, Double expectedMinus,
-                       Double expectedMultiply, Double expectedDivide) {
+    public void divide(Double num1, Double num2) {
+        Double expectedDivide = num1 / num2;
         Double actual = out.divide(num1, num2);
         assertEquals(expectedDivide, actual);
     }
